@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+ <head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+
+     <title>Menu</title>
+     <script>
+
+           var btnArray;
+           var selectedPos = 0;
+
+           function onInitialise()
+           {
+               console.log("init");
+               document.addEventListener('keydown', onKeyDown,false);
+               btnArray = document.getElementsByClassName("btn");
+               btnArray[0].style.border="4px solid cyan";
+               imgArray=document.getElementsByClassName("img");
+               imgArray[0].style.visibility="visible";
+           }
+
+           function onKeyDown(eventObj) {
+               console.log('event code:' + eventObj.keyCode);
+               switch (eventObj.keyCode) {
+
+                   case 37://left
+                           console.log("left");
+                           selectedPos--;
+
+                       btnArray[selectedPos].style.border="4px solid cyan";
+                       btnArray[selectedPos + 1].style.border="";
+                       btnArray[selectedPos + 1].style.backgroundColor="blue";
+                       btnArray[selectedPos ].style.backgroundColor="grey";
+                       imgArray[selectedPos].style.visibility="visible";
+                        imgArray[selectedPos + 1].style.visibility="hidden";
+                       btnArray[selectedPos + 1].style.textAlign="center";
+                       btnArray[selectedPos+1].style.textAlign="center";
+                       break;
+
+                   case 39://right
+                        console.log("right");
+                       selectedPos++;
+                       btnArray[selectedPos].style.border="4px solid cyan";
+                       btnArray[selectedPos - 1].style.border="";
+                       btnArray[selectedPos - 1].style.backgroundColor="blue";
+                       btnArray[selectedPos ].style.backgroundColor="grey";
+                       imgArray[selectedPos].style.visibility="visible";
+                       imgArray[selectedPos -1].style.visibility="hidden";
+
+                       break;
+               }
+
+           }
+     </script>
+<style>
+
+body{
+    padding-top:300px;
+}
+
+.btn image.img{
+    display: none;
+}
+
+.guide-b:hover .pc-b-img,
+.rec-b:hover .pc-b-img,
+.set-b:hover .pc-b-img,
+.pc-b:hover .pc-b-img
+{
+    display: block;
+}
+
+div.btn {
+    display: inline-block;
+    padding: 14px 22px;
+    color: black;
+    background-color: blue;
+    margin-left:10px;
+    margin-right:10px;
+    cursor:pointer;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+
+
+}
+div.selected {
+
+    display: inline-block;
+
+    color: #ffffff;
+    background-color: blue;
+    padding:14px 22px;
+    font-size: 18px;
+    margin-right: auto;
+    margin-left: auto;
+    background-position: center top;
+    height:30px;
+    width: 100px;
+    line-height: 46px;
+}
+</style>
+
+ </head>
+
+ <body onload="onInitialise()" bgcolor="black">
+
+
+ <div id ="mainDiv"align="center" border="1px solid red">
+     <div class="selected btn" id="guide">
+<span>Guide</span>
+     </div>
+     <div class="btn" id="recording">
+             <span>My recording</span>
+     </div>
+     <div class ="btn"id="setting">
+     </div>
+     <div class="btn" id="PC">
+<span>PC</span>
+     </div>
+ </div>
+
+ </body>
+
+</html>
+
