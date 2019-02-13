@@ -16,8 +16,6 @@
                document.addEventListener('keydown', onKeyDown,false);
                btnArray = document.getElementsByClassName("btn");
                btnArray[0].style.border="4px solid cyan";
-               imgArray=document.getElementsByClassName("img");
-               imgArray[0].style.visibility="visible";
            }
 
            function onKeyDown(eventObj) {
@@ -32,8 +30,6 @@
                        btnArray[selectedPos + 1].style.border="";
                        btnArray[selectedPos + 1].style.backgroundColor="blue";
                        btnArray[selectedPos ].style.backgroundColor="grey";
-                       imgArray[selectedPos].style.visibility="visible";
-                        imgArray[selectedPos + 1].style.visibility="hidden";
                        btnArray[selectedPos + 1].style.textAlign="center";
                        btnArray[selectedPos+1].style.textAlign="center";
                        break;
@@ -45,9 +41,6 @@
                        btnArray[selectedPos - 1].style.border="";
                        btnArray[selectedPos - 1].style.backgroundColor="blue";
                        btnArray[selectedPos ].style.backgroundColor="grey";
-                       imgArray[selectedPos].style.visibility="visible";
-                       imgArray[selectedPos -1].style.visibility="hidden";
-
                        break;
                }
 
